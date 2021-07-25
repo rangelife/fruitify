@@ -1,0 +1,19 @@
+#!/bin/bash -ex
+
+BUILD_DIR="$( cd "$( dirname "${BASH_SOURCE[0]:-${(%):-%x}}" )" && pwd )"
+
+RUN_DIR="$PWD"
+
+echo "build dir $BUILD_DIR"
+cd "$BUILD_DIR"
+
+docker build -t fruitify - <<-EOF
+FROM python:3.7.6-stretch
+COPY fruitify.py /work
+WORKDIR /work
+EOF
+
+docker run  --rm \
+            -v "${RUN_DIR}":/work \
+            fruitify fruitify.py "$@"
+
