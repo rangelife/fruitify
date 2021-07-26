@@ -1,13 +1,14 @@
 # fruitify
 turns text into fruit emojis
 
-## Usage:
+## Usage
 
-python3 fruitify.py [text file] [(optional) lookup spec file]
+python3 fruitify.py [text file] <(optional) lookup spec file>
 
-## Requirements:
+## Requirements
 
 Python 3 and a POSIX shell
 
-## Example:
+## Example
+
 python3 fruitify.py test/nggyu.txt test/nggyu.json
